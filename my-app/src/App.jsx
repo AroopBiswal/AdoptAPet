@@ -5,7 +5,8 @@ import './App.css';
 
 
 //components
-import Header from './components/header/header';
+import HomePage from './pages/homePage/homePage';
+import NavBar from './components/navBar/navBar';
 
 // export default class App extends React.Component {
 //   render() {
@@ -19,9 +20,10 @@ export default function App() {
 
   return (
     <Router>
+      <NavBar />
       <Routes>
 
-        <Route path="/" element={<Header />} />
+        <Route path="/" element={<HomePage />} />
 
       </Routes>
 
