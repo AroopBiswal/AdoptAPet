@@ -1,0 +1,24 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    margin: 20px;
+    text-align: center;
+    padding-top: auto;
+    
+    
+}
+
+div {
+    background-image: url("../../../public/images/puppies1.jpeg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 20vh;
+}
+
+h1 {
+    color: black;
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+}
