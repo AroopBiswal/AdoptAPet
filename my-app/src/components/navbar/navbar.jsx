@@ -11,9 +11,9 @@ export default class NavBar extends React.Component {
         return (
         <div className="navbar">
             <div className="nav">
-               <div className = "navItem"> <FiHome /> Home </div>
-                <div className = "navItem"> <FiSearch /> Search  </div>
-                <div className = "navItem"> <FiHeart /> Saved </div>
+               <a className = "navItem" href={"/"}> <FiHome /> Home </a>
+                <a className = "navItem" href={"/search"}> <FiSearch /> Search  </a>
+                <a className = "navItem" href={"/saved"}> <FiHeart /> Saved </a>
             </div>
         </div>
         );

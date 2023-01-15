@@ -5,16 +5,9 @@ import './App.css';
 
 
 //components
-import HomePage from './pages/homePage/homePage';
 import NavBar from './components/navBar/navBar';
-
-// export default class App extends React.Component {
-//   render() {
-//     return (
-//       <Header />
-//     );
-//   }
-// }
+import HomePage from './pages/homePage/homePage';
+import SearchPage from './pages/searchPage/searchPage';
 
 export default function App() {
 
@@ -25,8 +18,11 @@ export default function App() {
 
         <Route path="/" element={<HomePage />} />
 
-      </Routes>
+        <Route path="/search" element={<SearchPage />} />
 
+        <Route path="/saved" element={<SearchPage />} />
+
+      </Routes>
 
     </Router>
   );
