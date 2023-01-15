@@ -16,7 +16,10 @@ export default class SearchPage extends React.Component {
     render() {
         return (
         <div className="searchPage">
-            <h1> Search Page </h1>
+            <div className="searchTitle"> Search Page </div>
+            <div className="searchArea">
+                <input type="text" placeholder="Type of pet (eg. dog, rabbit, etc.)" />
+            </div>
         </div>
         );
     }
