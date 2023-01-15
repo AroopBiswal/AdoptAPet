@@ -2,13 +2,18 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./navBar.css";
+import { FiHome } from "react-icons/fi";
+import { FiSearch } from "react-icons/fi";
+import { FiHeart } from "react-icons/fi";
 
 export default class NavBar extends React.Component {
     render() {
         return (
         <div className="navbar">
             <div className="nav">
-               test
+               <div className = "navItem"> <FiHome /> Home </div>
+                <div className = "navItem"> <FiSearch /> Search  </div>
+                <div className = "navItem"> <FiHeart /> Saved </div>
             </div>
         </div>
         );
