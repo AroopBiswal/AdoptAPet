@@ -5,6 +5,7 @@ import ReactDOM from "react-dom/client";
 
 import "./searchPage.css";
 import { search } from "../../scripts/apiCalls";
+import PetDisplay from "../../components/petDisplay/petDisplay.jsx";
 
 
 export default class SearchPage extends React.Component {
@@ -40,12 +41,15 @@ export default class SearchPage extends React.Component {
         console.log("Search button clicked");
         search(this.state.type, this.state.size, BearerToken).then((response) => {
             console.log(response);
-            this.setState({searchResults: response});
+            this.setState({searchResults: response.animals});
         }
         );
+        
     }
     
     render() {
+        console.log("Search results: ");
+        console.log(this.state.searchResults);
         return (
         <div className="searchPage">
             <div className="searchTitle"> Search Page </div>
@@ -53,6 +57,11 @@ export default class SearchPage extends React.Component {
                 <input className = "searchInput" type="text" placeholder="Type of pet (eg. dog, rabbit, etc.)" value={this.state.value} onChange={this.updateType}/>
                 <input className = "searchInput" type="text" placeholder="Size of pet (eg. small, medium, large, xlarge)" value={this.state.value} onChange={this.updateSize}/>
                 <button className = "searchButton" onClick={this.handleSearch}> Search </button>
+            </div>
+            <div className="searchResults">
+            <div className="petDisplayArea">
+                <PetDisplay pets={this.state.searchResults}/>
+            </div>
             </div>
         </div>
         );
