@@ -60,7 +60,13 @@ export default class SearchPage extends React.Component {
             </div>
             <div className="searchResults">
             <div className="petDisplayArea">
-                <PetDisplay pets={this.state.searchResults}/>
+                {this.state.searchResults.map((pet) => (
+                        <div className="petDisplayCard">
+                            <div className="petName"> {pet.name} </div>
+                            <div className="petDescription"> {pet.description} </div>
+                            <div className="petContact"> Contact: {pet.contact.email} </div>
+                        </div>
+                    ))}
             </div>
             </div>
         </div>

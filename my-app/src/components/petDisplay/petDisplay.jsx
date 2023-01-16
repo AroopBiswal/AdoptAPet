@@ -7,9 +7,6 @@ export default class PetDisplay extends React.Component {
 
     constructor(props) {
         super(props);
-        if(this.props.pets == null) {
-            this.props.pets = [];
-        }
         this.state = {
             pets: this.props.pets,
         };
