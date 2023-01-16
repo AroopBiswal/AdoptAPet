@@ -4,24 +4,33 @@ import { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import "./.env";
 
 
 
-//components
+//compnents, pages, and scripts
 import NavBar from './components/navBar/navBar';
 import HomePage from './pages/homePage/homePage';
 import SearchPage from './pages/searchPage/searchPage';
+import { getBearerToken, search } from './scripts/apiCalls';
 
 export default function App() {
 
   const[bearerSet, setBearerSet] = useState(false);
+  const[bearerToken, setBearerToken] = useState("");
+
+  const fetchBearerToken = async () => { 
+    const bearer = await getBearerToken();
+    setBearerToken(bearer);
+    console.log("Bearer token fetched");
+    console.log(bearer);
+    setBearerToken(bearer);
+    
+  }
 
   useEffect(() => {
     const bearer = localStorage.getItem("bearer");
     if (!bearerSet) {
-      console.log("loaded");
-      console.log(process.env.BEARER);
+      fetchBearerToken();
       setBearerSet(true);
     }
     
