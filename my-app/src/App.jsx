@@ -20,21 +20,24 @@ export default function App() {
 
   const fetchBearerToken = async () => { 
     const bearer = await getBearerToken();
-    setBearerToken(bearer);
-    console.log("Bearer token fetched");
     console.log(bearer);
     setBearerToken(bearer);
-    
+    localStorage.setItem("BearerToken", bearer);
+    console.log("Bearer token set in local storage");
+    // console.log("Bearer token fetched");
+    // console.log(bearer);
   }
 
   useEffect(() => {
-    const bearer = localStorage.getItem("bearer");
     if (!bearerSet) {
       fetchBearerToken();
+      
+      console.log(localStorage.getItem("BearerToken"));
       setBearerSet(true);
     }
     
  });
+
   return (
     <Router>
       <NavBar />
@@ -42,7 +45,7 @@ export default function App() {
 
         <Route path="/" element={<HomePage />} />
 
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/search" element={<SearchPage BearerToken = {bearerToken} />} />
 
         <Route path="/saved" element={<SearchPage />} />
 
