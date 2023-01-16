@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-let bearerToken = "";
+
 
 export async function getBearerToken() {
     const response = await fetch("https://api.petfinder.com/v2/oauth2/token", {
@@ -15,10 +15,19 @@ export async function getBearerToken() {
     const data = await response.json();
     // console.log("Response --> " + data["token_type"]);
     // console.log("Bearer Token --> " + data["access_token"]);
-    bearerToken = data["access_token"];
     return  data["access_token"];
 }
 
-export async function search() {
-    console.log("Bearer Token3 --> " + bearerToken);
+export async function search(type, size) {
+  let bearerToken= localStorage.getItem("BearerToken");
+    const response = await fetch(`https://api.petfinder.com/v2/animals?type=${type}&size=${size}`, {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        method: "GET"
+      });
+    const data = await response.json();
+    console.log("Response --> " + data);
+    return data;
 }
