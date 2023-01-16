@@ -13,7 +13,6 @@ export default class NavBar extends React.Component {
             <div className="nav">
                <a className = "navItem" href={"/"}> <FiHome /> Home </a>
                 <a className = "navItem" href={"/search"}> <FiSearch /> Search  </a>
-                <a className = "navItem" href={"/saved"}> <FiHeart /> Saved </a>
             </div>
         </div>
         );

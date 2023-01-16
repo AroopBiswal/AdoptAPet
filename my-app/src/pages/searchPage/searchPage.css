@@ -61,7 +61,7 @@
 
   .petDisplayCard {
     width: 50vw;
-    height: 50vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -77,5 +77,18 @@
     font-size: 1.5em;
     text-align: center;
     color: rgb(255, 255, 112);
+    font-weight: bold;
+  }
+
+  .petPhoto {
+    width: 100%;
+    height: 50%;
+    border-radius: 5px;
+  }
+
+  .petContact {
+    font-size: 1em;
+    text-align: center;
+    color: rgb(193, 5, 5);
     font-weight: bold;
   }

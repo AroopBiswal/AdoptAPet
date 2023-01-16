@@ -5,7 +5,6 @@ import ReactDOM from "react-dom/client";
 
 import "./searchPage.css";
 import { search } from "../../scripts/apiCalls";
-import PetDisplay from "../../components/petDisplay/petDisplay.jsx";
 
 
 export default class SearchPage extends React.Component {
@@ -40,8 +39,14 @@ export default class SearchPage extends React.Component {
         console.log("ABC" + this.state.type + this.state.size)
         console.log("Search button clicked");
         search(this.state.type, this.state.size, BearerToken).then((response) => {
-            console.log(response);
+            if(response.animals == null) {
+                alert("Oops!, Invalid Input");
+            }
+            else {
+                console.log(response);
             this.setState({searchResults: response.animals});
+            }
+            
         }
         );
         
@@ -50,6 +55,7 @@ export default class SearchPage extends React.Component {
     render() {
         console.log("Search results: ");
         console.log(this.state.searchResults);
+        
         return (
         <div className="searchPage">
             <div className="searchTitle"> Search Page </div>
@@ -65,6 +71,8 @@ export default class SearchPage extends React.Component {
                             <div className="petName"> {pet.name} </div>
                             <div className="petDescription"> {pet.description} </div>
                             <div className="petContact"> Contact: {pet.contact.email} </div>
+                            <div className="petPhoto"> <img src={!pet.photos[0] ? "../../../public/images/noImageFound.jpeg" : pet.photos[0].medium} alt="no image found"/> </div>
+                            <div className="petLocation"> {pet.contact.address.city}, {pet.contact.address.state} </div>
                         </div>
                     ))}
             </div>
