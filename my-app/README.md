@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 
-#Before running this project, create a .env file in the my-app/ directory with the following format:
+# Before running this project, create a .env file in the my-app/ directory with the following format:
 ```
 REACT_APP_API_KEY = 
 REACT_APP_API_SECRET = 
